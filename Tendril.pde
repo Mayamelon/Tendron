@@ -50,7 +50,7 @@ public void fractalTree(double x, double y, double siz, double dir, double rand)
   endX = startX + (double)(siz * Math.cos(dir));
   endY = startY + (double)(siz * Math.sin(dir));
   line((float)startX, (float)startY, (float)endX, (float)endY);
-  if (siz <= 8) return;
+  if (siz <= 2) return;
   fractalTree(endX, endY, siz/2, dir+rand, rand);
   fractalTree(endX, endY, siz/2, dir + Math.PI / 3 + rand, rand);
   fractalTree(endX, endY, siz/2, dir - Math.PI / 3 + rand, rand);
