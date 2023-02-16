@@ -39,7 +39,7 @@ public void fractalTree(double x, double y, double siz, double dir) {
   fractalTree(endX, endY, siz/2, dir - Math.PI / 3);
 }
 
-public static enum Mode {
+public enum Mode {
   TENDRON,
   FRACTAL_TREE
 }
