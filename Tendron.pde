@@ -1,29 +1,26 @@
-Mode mode;
+Boolean mode; // true is tendron, false is fractal tree
 
 void setup() {
   size(1280, 720);
-  mode = Mode.TENDRON;
+  mode = true;
   background(0, 0, 0);
   //noLoop();
 }
 
 void draw() {
   background(0, 0, 0);
-  switch (mode) {
-    case TENDRON:
+  if (mode) {
       Cluster c = new Cluster(27, width/2, height/2);
       c.show();
-      break;
-    case FRACTAL_TREE:
+  } else {
       for (int i = 0; i < 7; i++) {
         fractalTree(width/2, height, height/2, -Math.PI / 2);
       }
-      break;
   }
 }
 
 public void mousePressed() {
-  mode = (mode == Mode.TENDRON) ? Mode.FRACTAL_TREE : Mode.TENDRON;
+  mode = !mode;
 }
 
 public void fractalTree(double x, double y, double siz, double dir) {
@@ -37,9 +34,4 @@ public void fractalTree(double x, double y, double siz, double dir) {
   fractalTree(endX, endY, siz/2, dir);
   fractalTree(endX, endY, siz/2, dir + Math.PI / 3);
   fractalTree(endX, endY, siz/2, dir - Math.PI / 3);
-}
-
-public enum Mode {
-  TENDRON,
-  FRACTAL_TREE
 }
